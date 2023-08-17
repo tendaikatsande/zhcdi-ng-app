@@ -1,0 +1,38 @@
+{
+  "applications": "*",
+  "entityTableName": "framework",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "modifiedDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "Framework",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "frameworkType",
+      "otherEntityRelationshipName": "framework",
+      "relationshipName": "frameworkType",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "fileUpload",
+      "otherEntityRelationshipName": "framework",
+      "relationshipName": "fileUpload",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,94 @@
+{
+  "applications": "*",
+  "entityTableName": "cso",
+  "fields": [
+    {
+      "fieldName": "firstName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "organisation",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "cell",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "registrationCertificate",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "organisationProfile",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "managementStructure",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "strategicPlan",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "resourceMobilisationPlan",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "comments",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "enquiries",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lat",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lng",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "modifiedDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "Cso",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "province",
+      "otherEntityRelationshipName": "cso",
+      "relationshipName": "province",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

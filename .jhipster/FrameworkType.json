@@ -1,0 +1,31 @@
+{
+  "applications": "*",
+  "entityTableName": "framework_type",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "modifiedDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "FrameworkType",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "framework",
+      "otherEntityRelationshipName": "frameworkType",
+      "relationshipName": "framework",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

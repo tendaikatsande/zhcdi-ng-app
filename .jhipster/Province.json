@@ -1,0 +1,31 @@
+{
+  "applications": "*",
+  "entityTableName": "province",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "modifiedDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "Province",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "cso",
+      "otherEntityRelationshipName": "province",
+      "relationshipName": "cso",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}
