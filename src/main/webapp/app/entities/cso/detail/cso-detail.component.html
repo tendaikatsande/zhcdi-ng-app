@@ -1,0 +1,103 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="cso">
+      <h2 data-cy="csoDetailsHeading"><span jhiTranslate="zhcdiApplicationApp.cso.detail.title">Cso</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ cso.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.cso.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ cso.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.cso.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ cso.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.cso.organisation">Organisation</span></dt>
+        <dd>
+          <span>{{ cso.organisation }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.cso.cell">Cell</span></dt>
+        <dd>
+          <span>{{ cso.cell }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.cso.city">City</span></dt>
+        <dd>
+          <span>{{ cso.city }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.cso.email">Email</span></dt>
+        <dd>
+          <span>{{ cso.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.cso.registrationCertificate">Registration Certificate</span></dt>
+        <dd>
+          <span>{{ cso.registrationCertificate }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.cso.organisationProfile">Organisation Profile</span></dt>
+        <dd>
+          <span>{{ cso.organisationProfile }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.cso.managementStructure">Management Structure</span></dt>
+        <dd>
+          <span>{{ cso.managementStructure }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.cso.strategicPlan">Strategic Plan</span></dt>
+        <dd>
+          <span>{{ cso.strategicPlan }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.cso.resourceMobilisationPlan">Resource Mobilisation Plan</span></dt>
+        <dd>
+          <span>{{ cso.resourceMobilisationPlan }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.cso.comments">Comments</span></dt>
+        <dd>
+          <span>{{ cso.comments }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.cso.enquiries">Enquiries</span></dt>
+        <dd>
+          <span>{{ cso.enquiries }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.cso.lat">Lat</span></dt>
+        <dd>
+          <span>{{ cso.lat }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.cso.lng">Lng</span></dt>
+        <dd>
+          <span>{{ cso.lng }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.cso.createdDate">Created Date</span></dt>
+        <dd>
+          <span>{{ cso.createdDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.cso.modifiedDate">Modified Date</span></dt>
+        <dd>
+          <span>{{ cso.modifiedDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.cso.province">Province</span></dt>
+        <dd>
+          <span *ngFor="let province of cso.provinces; let last = last">
+            <a [routerLink]="['/province', province.id, 'view']">{{ province.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/cso', cso.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

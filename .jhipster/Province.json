@@ -1,5 +1,6 @@
 {
   "applications": "*",
+  "changelogDate": "20230817021249",
   "entityTableName": "province",
   "fields": [
     {
@@ -27,5 +28,6 @@
       "relationshipType": "many-to-many"
     }
   ],
+  "searchEngine": "no",
   "service": "serviceImpl"
 }

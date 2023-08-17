@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="framework">
+      <h2 data-cy="frameworkDetailsHeading"><span jhiTranslate="zhcdiApplicationApp.framework.detail.title">Framework</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ framework.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.framework.name">Name</span></dt>
+        <dd>
+          <span>{{ framework.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.framework.createdDate">Created Date</span></dt>
+        <dd>
+          <span>{{ framework.createdDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.framework.modifiedDate">Modified Date</span></dt>
+        <dd>
+          <span>{{ framework.modifiedDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.framework.frameworkType">Framework Type</span></dt>
+        <dd>
+          <span *ngFor="let frameworkType of framework.frameworkTypes; let last = last">
+            <a [routerLink]="['/framework-type', frameworkType.id, 'view']">{{ frameworkType.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.framework.fileUpload">File Upload</span></dt>
+        <dd>
+          <span *ngFor="let fileUpload of framework.fileUploads; let last = last">
+            <a [routerLink]="['/file-upload', fileUpload.id, 'view']">{{ fileUpload.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/framework', framework.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -48,6 +48,17 @@ public class CacheConfiguration {
             createCache(cm, com.mycompany.myapp.domain.User.class.getName());
             createCache(cm, com.mycompany.myapp.domain.Authority.class.getName());
             createCache(cm, com.mycompany.myapp.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.mycompany.myapp.domain.Cso.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Cso.class.getName() + ".provinces");
+            createCache(cm, com.mycompany.myapp.domain.FileUpload.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.FileUpload.class.getName() + ".frameworks");
+            createCache(cm, com.mycompany.myapp.domain.Framework.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Framework.class.getName() + ".frameworkTypes");
+            createCache(cm, com.mycompany.myapp.domain.Framework.class.getName() + ".fileUploads");
+            createCache(cm, com.mycompany.myapp.domain.FrameworkType.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.FrameworkType.class.getName() + ".frameworks");
+            createCache(cm, com.mycompany.myapp.domain.Province.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Province.class.getName() + ".csos");
             // jhipster-needle-ehcache-add-entry
         };
     }

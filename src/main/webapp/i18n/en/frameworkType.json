@@ -1,0 +1,27 @@
+{
+  "zhcdiApplicationApp": {
+    "frameworkType": {
+      "home": {
+        "title": "Framework Types",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Framework Type",
+        "createOrEditLabel": "Create or edit a Framework Type",
+        "notFound": "No Framework Types found"
+      },
+      "created": "A new Framework Type is created with identifier {{ param }}",
+      "updated": "A Framework Type is updated with identifier {{ param }}",
+      "deleted": "A Framework Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Framework Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Framework Type"
+      },
+      "id": "ID",
+      "name": "Name",
+      "createdDate": "Created Date",
+      "modifiedDate": "Modified Date",
+      "framework": "Framework"
+    }
+  }
+}

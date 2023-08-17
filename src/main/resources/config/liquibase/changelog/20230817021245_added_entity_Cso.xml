@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Cso.
+    -->
+    <changeSet id="20230817021245-1" author="jhipster">
+        <createTable tableName="cso">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="first_name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="last_name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="organisation" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="cell" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="city" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="email" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="registration_certificate" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="organisation_profile" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="management_structure" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="strategic_plan" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="resource_mobilisation_plan" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="comments" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="enquiries" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="lat" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+            <column name="lng" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+            <column name="created_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="modified_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="cso" columnName="created_date" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="cso" columnName="modified_date" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <changeSet id="20230817021245-1-relations" author="jhipster">
+
+        <createTable tableName="rel_cso__province">
+            <column name="province_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cso_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="cso_id, province_id" tableName="rel_cso__province"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20230817021245-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/cso.csv"
+                  separator=";"
+                  tableName="cso"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="first_name" type="string"/>
+            <column name="last_name" type="string"/>
+            <column name="organisation" type="string"/>
+            <column name="cell" type="string"/>
+            <column name="city" type="string"/>
+            <column name="email" type="string"/>
+            <column name="registration_certificate" type="boolean"/>
+            <column name="organisation_profile" type="boolean"/>
+            <column name="management_structure" type="boolean"/>
+            <column name="strategic_plan" type="boolean"/>
+            <column name="resource_mobilisation_plan" type="boolean"/>
+            <column name="comments" type="string"/>
+            <column name="enquiries" type="string"/>
+            <column name="lat" type="numeric"/>
+            <column name="lng" type="numeric"/>
+            <column name="created_date" type="date"/>
+            <column name="modified_date" type="date"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

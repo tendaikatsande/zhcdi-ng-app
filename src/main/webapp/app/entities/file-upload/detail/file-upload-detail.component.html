@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="fileUpload">
+      <h2 data-cy="fileUploadDetailsHeading"><span jhiTranslate="zhcdiApplicationApp.fileUpload.detail.title">File Upload</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ fileUpload.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.fileUpload.filename">Filename</span></dt>
+        <dd>
+          <span>{{ fileUpload.filename }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.fileUpload.originalFilename">Original Filename</span></dt>
+        <dd>
+          <span>{{ fileUpload.originalFilename }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.fileUpload.extension">Extension</span></dt>
+        <dd>
+          <span>{{ fileUpload.extension }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.fileUpload.sizeInBytes">Size In Bytes</span></dt>
+        <dd>
+          <span>{{ fileUpload.sizeInBytes }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.fileUpload.sha256">Sha 256</span></dt>
+        <dd>
+          <span>{{ fileUpload.sha256 }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.fileUpload.contentType">Content Type</span></dt>
+        <dd>
+          <span>{{ fileUpload.contentType }}</span>
+        </dd>
+        <dt><span jhiTranslate="zhcdiApplicationApp.fileUpload.uploadDate">Upload Date</span></dt>
+        <dd>
+          <span>{{ fileUpload.uploadDate | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/file-upload', fileUpload.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

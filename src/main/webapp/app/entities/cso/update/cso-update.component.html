@@ -1,0 +1,264 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-cso-heading" data-cy="CsoCreateUpdateHeading" jhiTranslate="zhcdiApplicationApp.cso.home.createOrEditLabel">
+        Create or edit a Cso
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="zhcdiApplicationApp.cso.firstName" for="field_firstName">First Name</label>
+          <input type="text" class="form-control" name="firstName" id="field_firstName" data-cy="firstName" formControlName="firstName" />
+          <div *ngIf="editForm.get('firstName')!.invalid && (editForm.get('firstName')!.dirty || editForm.get('firstName')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('firstName')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="zhcdiApplicationApp.cso.lastName" for="field_lastName">Last Name</label>
+          <input type="text" class="form-control" name="lastName" id="field_lastName" data-cy="lastName" formControlName="lastName" />
+          <div *ngIf="editForm.get('lastName')!.invalid && (editForm.get('lastName')!.dirty || editForm.get('lastName')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('lastName')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="zhcdiApplicationApp.cso.organisation" for="field_organisation">Organisation</label>
+          <input
+            type="text"
+            class="form-control"
+            name="organisation"
+            id="field_organisation"
+            data-cy="organisation"
+            formControlName="organisation"
+          />
+          <div
+            *ngIf="editForm.get('organisation')!.invalid && (editForm.get('organisation')!.dirty || editForm.get('organisation')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('organisation')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="zhcdiApplicationApp.cso.cell" for="field_cell">Cell</label>
+          <input type="text" class="form-control" name="cell" id="field_cell" data-cy="cell" formControlName="cell" />
+          <div *ngIf="editForm.get('cell')!.invalid && (editForm.get('cell')!.dirty || editForm.get('cell')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('cell')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="zhcdiApplicationApp.cso.city" for="field_city">City</label>
+          <input type="text" class="form-control" name="city" id="field_city" data-cy="city" formControlName="city" />
+          <div *ngIf="editForm.get('city')!.invalid && (editForm.get('city')!.dirty || editForm.get('city')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('city')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="zhcdiApplicationApp.cso.email" for="field_email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" />
+          <div *ngIf="editForm.get('email')!.invalid && (editForm.get('email')!.dirty || editForm.get('email')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('email')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="zhcdiApplicationApp.cso.registrationCertificate" for="field_registrationCertificate"
+            >Registration Certificate</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="registrationCertificate"
+            id="field_registrationCertificate"
+            data-cy="registrationCertificate"
+            formControlName="registrationCertificate"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="zhcdiApplicationApp.cso.organisationProfile" for="field_organisationProfile"
+            >Organisation Profile</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="organisationProfile"
+            id="field_organisationProfile"
+            data-cy="organisationProfile"
+            formControlName="organisationProfile"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="zhcdiApplicationApp.cso.managementStructure" for="field_managementStructure"
+            >Management Structure</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="managementStructure"
+            id="field_managementStructure"
+            data-cy="managementStructure"
+            formControlName="managementStructure"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="zhcdiApplicationApp.cso.strategicPlan" for="field_strategicPlan">Strategic Plan</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="strategicPlan"
+            id="field_strategicPlan"
+            data-cy="strategicPlan"
+            formControlName="strategicPlan"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="zhcdiApplicationApp.cso.resourceMobilisationPlan" for="field_resourceMobilisationPlan"
+            >Resource Mobilisation Plan</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="resourceMobilisationPlan"
+            id="field_resourceMobilisationPlan"
+            data-cy="resourceMobilisationPlan"
+            formControlName="resourceMobilisationPlan"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="zhcdiApplicationApp.cso.comments" for="field_comments">Comments</label>
+          <input type="text" class="form-control" name="comments" id="field_comments" data-cy="comments" formControlName="comments" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="zhcdiApplicationApp.cso.enquiries" for="field_enquiries">Enquiries</label>
+          <input type="text" class="form-control" name="enquiries" id="field_enquiries" data-cy="enquiries" formControlName="enquiries" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="zhcdiApplicationApp.cso.lat" for="field_lat">Lat</label>
+          <input type="number" class="form-control" name="lat" id="field_lat" data-cy="lat" formControlName="lat" />
+          <div *ngIf="editForm.get('lat')!.invalid && (editForm.get('lat')!.dirty || editForm.get('lat')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('lat')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('lat')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="zhcdiApplicationApp.cso.lng" for="field_lng">Lng</label>
+          <input type="number" class="form-control" name="lng" id="field_lng" data-cy="lng" formControlName="lng" />
+          <div *ngIf="editForm.get('lng')!.invalid && (editForm.get('lng')!.dirty || editForm.get('lng')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('lng')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('lng')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="zhcdiApplicationApp.cso.createdDate" for="field_createdDate">Created Date</label>
+          <div class="d-flex">
+            <input
+              id="field_createdDate"
+              data-cy="createdDate"
+              type="datetime-local"
+              class="form-control"
+              name="createdDate"
+              formControlName="createdDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="zhcdiApplicationApp.cso.modifiedDate" for="field_modifiedDate">Modified Date</label>
+          <div class="d-flex">
+            <input
+              id="field_modifiedDate"
+              data-cy="modifiedDate"
+              type="datetime-local"
+              class="form-control"
+              name="modifiedDate"
+              formControlName="modifiedDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label jhiTranslate="zhcdiApplicationApp.cso.province" for="field_provinces">Province</label>
+          <select
+            class="form-control"
+            id="field_provinces"
+            data-cy="province"
+            multiple
+            name="provinces"
+            formControlName="provinces"
+            [compareWith]="compareProvince"
+          >
+            <option [ngValue]="provinceOption" *ngFor="let provinceOption of provincesSharedCollection">{{ provinceOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

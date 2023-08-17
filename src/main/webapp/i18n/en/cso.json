@@ -1,0 +1,41 @@
+{
+  "zhcdiApplicationApp": {
+    "cso": {
+      "home": {
+        "title": "Csos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Cso",
+        "createOrEditLabel": "Create or edit a Cso",
+        "notFound": "No Csos found"
+      },
+      "created": "A new Cso is created with identifier {{ param }}",
+      "updated": "A Cso is updated with identifier {{ param }}",
+      "deleted": "A Cso is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cso {{ id }}?"
+      },
+      "detail": {
+        "title": "Cso"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "organisation": "Organisation",
+      "cell": "Cell",
+      "city": "City",
+      "email": "Email",
+      "registrationCertificate": "Registration Certificate",
+      "organisationProfile": "Organisation Profile",
+      "managementStructure": "Management Structure",
+      "strategicPlan": "Strategic Plan",
+      "resourceMobilisationPlan": "Resource Mobilisation Plan",
+      "comments": "Comments",
+      "enquiries": "Enquiries",
+      "lat": "Lat",
+      "lng": "Lng",
+      "createdDate": "Created Date",
+      "modifiedDate": "Modified Date",
+      "province": "Province"
+    }
+  }
+}

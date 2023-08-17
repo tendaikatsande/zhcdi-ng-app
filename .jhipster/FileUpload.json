@@ -1,5 +1,6 @@
 {
   "applications": "*",
+  "changelogDate": "20230817021246",
   "entityTableName": "file_upload",
   "fields": [
     {
@@ -49,5 +50,6 @@
       "relationshipType": "many-to-many"
     }
   ],
+  "searchEngine": "no",
   "service": "serviceImpl"
 }

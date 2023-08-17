@@ -1,0 +1,208 @@
+<div>
+  <h2 id="page-heading" data-cy="CsoHeading">
+    <span jhiTranslate="zhcdiApplicationApp.cso.home.title">Csos</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="zhcdiApplicationApp.cso.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-cso"
+        [routerLink]="['/cso/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="zhcdiApplicationApp.cso.home.createLabel"> Create a new Cso </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="csos?.length === 0">
+    <span jhiTranslate="zhcdiApplicationApp.cso.home.notFound">No Csos found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="csos && csos.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="firstName">
+            <div class="d-flex">
+              <span jhiTranslate="zhcdiApplicationApp.cso.firstName">First Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastName">
+            <div class="d-flex">
+              <span jhiTranslate="zhcdiApplicationApp.cso.lastName">Last Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="organisation">
+            <div class="d-flex">
+              <span jhiTranslate="zhcdiApplicationApp.cso.organisation">Organisation</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="cell">
+            <div class="d-flex">
+              <span jhiTranslate="zhcdiApplicationApp.cso.cell">Cell</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="city">
+            <div class="d-flex">
+              <span jhiTranslate="zhcdiApplicationApp.cso.city">City</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="email">
+            <div class="d-flex">
+              <span jhiTranslate="zhcdiApplicationApp.cso.email">Email</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="registrationCertificate">
+            <div class="d-flex">
+              <span jhiTranslate="zhcdiApplicationApp.cso.registrationCertificate">Registration Certificate</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="organisationProfile">
+            <div class="d-flex">
+              <span jhiTranslate="zhcdiApplicationApp.cso.organisationProfile">Organisation Profile</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="managementStructure">
+            <div class="d-flex">
+              <span jhiTranslate="zhcdiApplicationApp.cso.managementStructure">Management Structure</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="strategicPlan">
+            <div class="d-flex">
+              <span jhiTranslate="zhcdiApplicationApp.cso.strategicPlan">Strategic Plan</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="resourceMobilisationPlan">
+            <div class="d-flex">
+              <span jhiTranslate="zhcdiApplicationApp.cso.resourceMobilisationPlan">Resource Mobilisation Plan</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="comments">
+            <div class="d-flex">
+              <span jhiTranslate="zhcdiApplicationApp.cso.comments">Comments</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="enquiries">
+            <div class="d-flex">
+              <span jhiTranslate="zhcdiApplicationApp.cso.enquiries">Enquiries</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lat">
+            <div class="d-flex">
+              <span jhiTranslate="zhcdiApplicationApp.cso.lat">Lat</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lng">
+            <div class="d-flex">
+              <span jhiTranslate="zhcdiApplicationApp.cso.lng">Lng</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createdDate">
+            <div class="d-flex">
+              <span jhiTranslate="zhcdiApplicationApp.cso.createdDate">Created Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="modifiedDate">
+            <div class="d-flex">
+              <span jhiTranslate="zhcdiApplicationApp.cso.modifiedDate">Modified Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cso of csos; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/cso', cso.id, 'view']">{{ cso.id }}</a>
+          </td>
+          <td>{{ cso.firstName }}</td>
+          <td>{{ cso.lastName }}</td>
+          <td>{{ cso.organisation }}</td>
+          <td>{{ cso.cell }}</td>
+          <td>{{ cso.city }}</td>
+          <td>{{ cso.email }}</td>
+          <td>{{ cso.registrationCertificate }}</td>
+          <td>{{ cso.organisationProfile }}</td>
+          <td>{{ cso.managementStructure }}</td>
+          <td>{{ cso.strategicPlan }}</td>
+          <td>{{ cso.resourceMobilisationPlan }}</td>
+          <td>{{ cso.comments }}</td>
+          <td>{{ cso.enquiries }}</td>
+          <td>{{ cso.lat }}</td>
+          <td>{{ cso.lng }}</td>
+          <td>{{ cso.createdDate | formatMediumDatetime }}</td>
+          <td>{{ cso.modifiedDate | formatMediumDatetime }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/cso', cso.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/cso', cso.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(cso)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="csos && csos.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

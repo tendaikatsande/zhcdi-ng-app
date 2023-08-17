@@ -1,0 +1,28 @@
+{
+  "zhcdiApplicationApp": {
+    "framework": {
+      "home": {
+        "title": "Frameworks",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Framework",
+        "createOrEditLabel": "Create or edit a Framework",
+        "notFound": "No Frameworks found"
+      },
+      "created": "A new Framework is created with identifier {{ param }}",
+      "updated": "A Framework is updated with identifier {{ param }}",
+      "deleted": "A Framework is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Framework {{ id }}?"
+      },
+      "detail": {
+        "title": "Framework"
+      },
+      "id": "ID",
+      "name": "Name",
+      "createdDate": "Created Date",
+      "modifiedDate": "Modified Date",
+      "frameworkType": "Framework Type",
+      "fileUpload": "File Upload"
+    }
+  }
+}

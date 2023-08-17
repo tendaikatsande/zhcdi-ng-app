@@ -1,5 +1,6 @@
 {
   "applications": "*",
+  "changelogDate": "20230817021245",
   "entityTableName": "cso",
   "fields": [
     {
@@ -90,5 +91,6 @@
       "relationshipType": "many-to-many"
     }
   ],
+  "searchEngine": "no",
   "service": "serviceImpl"
 }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Framework.
+    -->
+    <changeSet id="20230817021247-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="framework_id"
+                                 baseTableName="rel_framework__framework_type"
+                                 constraintName="fk_rel_framework__framework_type__framework_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="framework"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="framework_type_id"
+                                 baseTableName="rel_framework__framework_type"
+                                 constraintName="fk_rel_framework__framework_type__framework_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="framework_type"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="framework_id"
+                                 baseTableName="rel_framework__file_upload"
+                                 constraintName="fk_rel_framework__file_upload__framework_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="framework"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="file_upload_id"
+                                 baseTableName="rel_framework__file_upload"
+                                 constraintName="fk_rel_framework__file_upload__file_upload_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="file_upload"
+                                 />
+    </changeSet>
+</databaseChangeLog>
